@@ -1,4 +1,3 @@
-
 interface Person{
 
     customerName: string,
