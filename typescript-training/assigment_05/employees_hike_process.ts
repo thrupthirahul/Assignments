@@ -65,27 +65,24 @@ let hikeProcess=function(e:Map<number, Employee>): Map<number, Employee>{
         
         const reward=5000;
 
-        let basicSalaryBeforeHike:number =employee.baseSalary;
+        const basicSalaryBeforeHike:number =employee.baseSalary;
 
         //Rating >=4.0 then ( Base Salary * variable pay % ) + Bonus
         if(employee.yearEndRating >=4){
             employee.baseSalary = (employee.baseSalary*variablePayPercentageIsRatingGreatherThanFour) + bonusIfRatingGreatherThanFour;
-            employee.hikePercetageValue = employee.baseSalary/basicSalaryBeforeHike;
         }
         else if (employee.yearEndRating >=3 && employee.yearEndRating <4){
-            employee.baseSalary= (employee.baseSalary*variablePayPercentageIsRatingGreatherThanEqualThreeAndLessThanFour) + bonusIfRatingGreatherThanEqualThreeAndLessThanFour;
-            employee.hikePercetageValue= employee.baseSalary/basicSalaryBeforeHike;
+            employee.baseSalary = (employee.baseSalary*variablePayPercentageIsRatingGreatherThanEqualThreeAndLessThanFour) + bonusIfRatingGreatherThanEqualThreeAndLessThanFour;
         }else{
             employee.baseSalary =(employee.baseSalary*variablePayPercentageIsRatingLessThanThree) + bonusIfRatingLessThanThree;
-            employee.hikePercetageValue= employee.baseSalary/basicSalaryBeforeHike;
         }
 
        // Employees with Experience >= 5 Years get extra Reward of 5000;
         if(employee.experience >=5){
-            employee.baseSalary +=reward;
-            employee.hikePercetageValue= employee.baseSalary/basicSalaryBeforeHike;
-            
+            employee.baseSalary +=reward; 
         }
+
+        employee.hikePercetageValue= employee.baseSalary/basicSalaryBeforeHike;
     }
     return e;
 }
