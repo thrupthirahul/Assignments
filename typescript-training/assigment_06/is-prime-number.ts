@@ -1,4 +1,4 @@
-const num:number=7;
+const num:number=19;
 
 function isPrime(n:number):boolean{
 

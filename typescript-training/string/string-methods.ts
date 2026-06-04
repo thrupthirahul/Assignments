@@ -9,3 +9,9 @@ let arr:string[]=[...nm];
 for(const a of arr){
     console.log(a);
 }
+
+
+let a1:number[] =[1,2,3,4];
+
+let holdarrays =[a1];
+//console.log(holdarrays);
