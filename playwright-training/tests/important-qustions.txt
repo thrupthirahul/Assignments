@@ -1,0 +1,36 @@
+Focus on these first:
+
+1) Selenium architecture
+-The test script sends commands (click, sendKeys, getText).
+-Selenium WebDriver converts them into W3C WebDriver protocol requests.
+-The browser driver (ChromeDriver/GeckoDriver) receives the request.
+-The browser driver communicates with the browser.
+-The browser performs the action and sends the response back.
+
+Selenium uses the WebDriver protocol and requires a browser driver such as ChromeDriver to communicate with browsers.
+Playwright communicates directly with browsers, making it faster and more reliable. 
+Playwright provides built-in auto-waiting, network interception, tracing, and easier parallel execution. Selenium has a larger ecosystem and 
+better support for legacy enterprise applications, while Playwright is preferred for modern web applications due to its speed 
+and reduced test flakiness.
+
+
+
+
+
+
+
+
+Playwright architecture
+Selenium vs Playwright
+findElement() vs locator()
+StaleElementReferenceException
+Implicit vs Explicit vs Fluent Wait
+ThreadLocal
+BrowserContext
+Selenium Grid
+POM framework
+Auto-waiting
+API interception
+Parallel execution
+Reduce automation execution time
+Framework architecture

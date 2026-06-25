@@ -1,6 +1,11 @@
 {
   "dependencies": {
-    "typecript": "^0.0.1-security"
+    "excel": "^1.0.1",
+    "pdf-parse": "^2.4.5",
+    "pdf-parse-new": "^2.1.0",
+    "typecript": "^0.0.1-security",
+    "xlsx": "^0.18.5",
+    "xslx": "^1.0.0"
   },
   "type": "module",
   "devDependencies": {
