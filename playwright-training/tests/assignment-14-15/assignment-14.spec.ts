@@ -1,6 +1,7 @@
 import {test, expect, chromium, Locator} from "@playwright/test";
 
 test("Assignment-14", async ()=>{
+    test.slow();
     
     //Start browser engine and Real browser is launched.
     const browserEngine= await chromium.launch({headless:false, channel: "chrome", args: ['--start-maximized']});
@@ -15,7 +16,7 @@ test("Assignment-14", async ()=>{
     await newPage.goto('https://parabank.parasoft.com/parabank/index.htm');
     
     //2.verify application logo is displayed
-    const applicationLogo= await newPage.locator("img[src='images/clear.gif']");
+    const applicationLogo= await newPage.locator("img[src='images/logo.gif']");
     expect(applicationLogo).toBeVisible();
     
     //3.Verify application caption displayed as "Experience the difference"
@@ -27,7 +28,7 @@ test("Assignment-14", async ()=>{
     await usernameTextbox.fill("thrupthi@gmail.com");
 
     // 5.Enter empty Password
-    const passwordTextbox=await newPage.locator("input[name='username']");
+    const passwordTextbox=await newPage.locator("input[name='password']");
     await passwordTextbox.clear();
 
     // 6.Click on login button
@@ -41,11 +42,10 @@ test("Assignment-14", async ()=>{
     // 8.Click on admin page link
     const adminPage= await newPage.locator("li>a[href='admin.htm']");
     await adminPage.click();
-    //const adminPageLaunch=await browserContext.waitForEvent("page");
     
-
-   // const adminPageLaunch=await newPage.waitForEvent('popup');
-   // const adminPageURL=adminPageLaunch.url();
+   //const adminPageLink=await newPage.hover("li>a[href='admin.htm']");
+   //await newPage.keyboard.press('Control+Shift+K');
+   
    expect(await newPage.url()).toBe("https://parabank.parasoft.com/parabank/admin.htm");
 
     // 9.select the option "soap" from dba mode radio button

@@ -69,5 +69,4 @@ Object	        Purpose
 Browser	        Actual browser process
 BrowserContext	Isolated browser session
 Page	        Browser tab
-
 **/
