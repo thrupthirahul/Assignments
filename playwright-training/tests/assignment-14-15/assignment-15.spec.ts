@@ -79,7 +79,7 @@ async function selectSubject(page: any, subject:string): Promise<void> {
     const textbox=await page.locator('//input[@class="subjects-auto-complete__input"]');
    //await textbox.click();
     await textbox.fill(subject);
-    const subjectLocator:Locator=await page.locator("//div[@id='react-select-2-listbox']//div[text()='Computer Science']");
+    const subjectLocator:Locator=await page.locator("//div[@id='react-select-2-listbox']//div[text()='"+subject+"']");
     await subjectLocator.click();
 }
 
