@@ -1,5 +1,14 @@
 import { defineConfig, devices } from '@playwright/test';
 
+/* 
+Test timeout: 30 seconds
+Expect timeout: 5 seconds
+Action timeout: 0 (no separate limit by default)
+Navigation timeout: 0 (no separate limit by default)
+
+The overall test timeout still acts as the upper limit unless you configure action or navigation timeouts explicitly. 
+ */
+
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
@@ -24,6 +33,13 @@ export default defineConfig({
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: 'html',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
+
+  // timeout: 3000, -> specfic to playwright test/ testcases 
+
+  //expect: {
+  // timeout: 10000 -> specfic timeout for the assertions in playwright.
+  //},
+
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
     // baseURL: 'http://localhost:3000',
@@ -31,7 +47,9 @@ export default defineConfig({
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
     video: 'off',
-    screenshot: 'on'
+    screenshot: 'on',
+    //navigationTimeout: 3000, -> specific timeout for the nagivation. 
+    //actionTimeout:3000, -> specfic timeout for playwright actions.
   },
 
   /* Configure projects for major browsers */
@@ -40,20 +58,20 @@ export default defineConfig({
       name: 'chromium',
       //use: { ...devices['Desktop Chrome'] },
       use: {
-      browserName: 'chromium'
+        browserName: 'chromium'
       },
     },
-/*
-    {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
-    },
-
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
-    },
-**/
+    /*
+        {
+          name: 'firefox',
+          use: { ...devices['Desktop Firefox'] },
+        },
+    
+        {
+          name: 'webkit',
+          use: { ...devices['Desktop Safari'] },
+        },
+    **/
     /* Test against mobile viewports. */
     // {
     //   name: 'Mobile Chrome',

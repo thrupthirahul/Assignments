@@ -1,7 +1,7 @@
 let p= new Promise((reslove,reject)=>{
     console.log("Hello Promise P.");
-     setTimeout(() => reslove("Hello TypeScript"), 20000);
- });
+    setTimeout(() => reslove("Hello TypeScript"), 20000);
+});
 
 let p1WithoutSetTimeout= new Promise((reslove,reject)=>{
     console.log('Hello TypeScript 2.0v Promise p1');
@@ -47,3 +47,6 @@ start();
 console.log('start 5');
 console.log('start 6');
 console.log('start 7');
+
+
+
