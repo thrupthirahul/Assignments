@@ -32,8 +32,7 @@ test('Assignment-15', async ({ page }) => {
     // 5. Select Gender (Male)
     //await page.locator("//input[@name='gender'] [@value='Male']");
     await selectGender(page, 'Male');
-
-    await page.locator('#userNumber');
+ 
     // 6. Enter mobile number
     const userNumber: Locator = await page.locator('#userNumber');
     userNumber.clear();
@@ -104,13 +103,13 @@ async function selectStateAndCity(page: any, state: string, city: string) {
     await stateLocator.click();
     //await page.waitForTimeout(10000);
     const s = await page.locator(`//div[@role ='option'][text() ='${state}']`);
-    await s.click({force: true});
+    await s.click({ force: true });
 
     const cityLocator: Locator = await page.locator('#city >.css-13cymwt-control > .css-hlgwow');
     await cityLocator.scrollIntoViewIfNeeded();
     await cityLocator.click();
     //await page.waitForTimeout(10000);
     const c = await page.locator(`//div[@role ='option'][text() ='${city}']`);
-    await c.click({force: true});
+    await c.click({ force: true });
 
 }
