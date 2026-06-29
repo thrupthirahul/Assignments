@@ -4,8 +4,10 @@ import { test, expect, Locator, Page } from '@playwright/test';
 Opening a new tab/window (page.context().waitForEvent('page')) 
 File downloads (waitForEvent('download'))
 File chooser dialogs (waitForEvent('filechooser'))
-Popups (waitForEvent('popup') on a page) 
+Popups (waitForEvent('popup') on a page)
+Alerts (waitForEvent('dialog)) 
 */
+
 
 test('Windows', async ({ context, page }) => {
 
@@ -49,4 +51,6 @@ test('Windows', async ({ context, page }) => {
     console.log(`message window: ${ await messageWindow.innerText()}`)
     console.log(`pages count : ${countPages.length}`);
 });
+
+
 
