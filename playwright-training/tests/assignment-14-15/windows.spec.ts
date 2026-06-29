@@ -1,5 +1,12 @@
 import { test, expect, Locator, Page } from '@playwright/test';
 
+/* listerner start...
+Opening a new tab/window (page.context().waitForEvent('page')) 
+File downloads (waitForEvent('download'))
+File chooser dialogs (waitForEvent('filechooser'))
+Popups (waitForEvent('popup') on a page) 
+*/
+
 test('Windows', async ({ context, page }) => {
 
     //Launch application.
@@ -33,7 +40,13 @@ test('Windows', async ({ context, page }) => {
     expect(m).toHaveText('This is a sample page');
 
     const countPages: Page[] = await context.pages();
+    
+    let newPage1 = page.context().waitForEvent('page');
+    const messageWindowButton: Locator = await page.locator('#messageWindowButton');
+    await messageWindowButton.click();
+    
+    const messageWindow: Locator = (await newPage1).locator(`//body`);
+    console.log(`message window: ${ await messageWindow.innerText()}`)
     console.log(`pages count : ${countPages.length}`);
-
 });
 
